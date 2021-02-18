@@ -3,6 +3,8 @@
 
 
 from collections import Counter
+from typing import List
+
 import pandas as pd  # 数据处理
 import numpy as np  # 数学运算
 from sklearn.model_selection import train_test_split, cross_validate  # 划分数据集函数
@@ -119,6 +121,17 @@ class DecisionTree(object):
             return self.traverse_node(self.root, feature) # 从根节点开始路由
         return np.array([self.traverse_node(self.root, f) for f in feature]) # 如果是很多个样本
         '''
+
+    def impurity(self):
+        pass
+
+
+class Node(object):
+    def __init__(self):
+        self.fit_value: str = ''
+        self.select_feature: str = ''
+        self.children: List[Node] = []
+        self.leaf = None
 
 
 # 定义决策树模型，传入算法参数
